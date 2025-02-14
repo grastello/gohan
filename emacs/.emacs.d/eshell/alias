@@ -1,1 +1,1 @@
-alias tk task
+alias tk task $*
