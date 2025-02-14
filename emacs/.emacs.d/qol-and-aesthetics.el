@@ -73,7 +73,7 @@
   :config
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t)
-  
+
   :init
   (counsel-mode))
 
@@ -98,3 +98,12 @@
 
 ;; aspell
 (setq ispell-program-name "aspell")
+
+;; zoom mode
+(use-package zoom
+  :ensure t
+  :config
+  (setq  zoom-size  '(0.618 . 0.618))
+
+  :init
+  (zoom-mode))
