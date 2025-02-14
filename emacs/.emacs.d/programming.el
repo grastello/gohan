@@ -33,6 +33,9 @@
 (add-hook 'latex-mode-hook 'flyspell-mode)
 (setq ispell-dictionary "it")
 
+(use-package pdf-tools
+  :ensure t)
+
 ;; Common LISP
 (use-package slime
   :ensure t
