@@ -1,5 +1,9 @@
 ;; line numbers
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(use-package linum-relative
+  :ensure t
+
+  :config
+  (add-hook 'prog-mode-hook 'linum-relative-mode))
 
 ;; tabs as 4 spaces
 (setq-default tab-width 4)
