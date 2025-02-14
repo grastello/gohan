@@ -62,25 +62,47 @@
 (electric-pair-mode t)
 
 ;; IDO + SMEX for nice completion in minibuffer
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
+;; (setq ido-enable-flex-matching t)
+;; (setq ido-everywhere t)
+;; (ido-mode 1)
 
-(use-package ido-completing-read+
-  :ensure t
-  :config
-  (ido-ubiquitous-mode 1))
+;; (use-package ido-completing-read+
+;;   :ensure t
+;;   :config
+;;   (ido-ubiquitous-mode 1))
 
-(use-package ido-vertical-mode
-  :ensure t
-  :config
-  (ido-vertical-mode 1)
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
+;; (use-package ido-vertical-mode
+;;   :ensure t
+;;   :config
+;;   (ido-vertical-mode 1)
+;;   (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 
-(use-package smex
+;; (use-package smex
+;;   :ensure t
+;;   :config
+;;   (global-set-key (kbd "M-x") 'smex))
+
+;; Ivy, counsel, swiper
+(use-package ivy
   :ensure t
+  :init
+  (ivy-mode))
+
+(use-package counsel
+  :ensure t
+
   :config
-  (global-set-key (kbd "M-x") 'smex))
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  
+  :init
+  (counsel-mode))
+
+(use-package swiper
+  :ensure t
+
+  :bind
+  (("C-s" . 'swiper)))
 
 ;; which-key
 (use-package which-key
