@@ -6,7 +6,10 @@
 
 ;; magit
 (use-package magit
-  :ensure t)
+  :ensure t
+
+  :config
+  (setopt magit-format-file-function #'magit-format-file-nerd-icons))
 
 ;; Completion with Corfu
 (use-package corfu
