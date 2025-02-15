@@ -3,7 +3,9 @@
   :ensure t
 
   :config
-  (add-hook 'prog-mode-hook 'linum-relative-mode))
+  (add-hook 'prog-mode-hook 'linum-relative-mode)
+  (add-hook 'LaTeX-mode-hook 'linum-relative-mode)
+  (add-hook 'latex-mode-hook 'linum-relative-mode))
 
 ;; tabs as 4 spaces
 (setq-default tab-width 4)
