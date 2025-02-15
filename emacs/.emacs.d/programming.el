@@ -27,7 +27,13 @@
 (setq ispell-dictionary "it")
 
 (use-package pdf-tools
-  :ensure t)
+  :ensure t
+
+  :pin manual
+
+  :config
+  (pdf-tools-install)
+  (setq-default pdf-view-display-size 'fit-width))
 
 ;; Common LISP
 (use-package slime
