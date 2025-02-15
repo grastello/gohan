@@ -6,6 +6,13 @@
 			       (hl-line-mode 1)
 			       (toggle-truncate-lines)))
 
+;; And icons.
+(use-package nerd-icons-dired
+  :ensure t
+
+  :hook
+  (dired-mode . nerd-icons-dired-mode))
+
 ;; Hidden file toggling.
 (defun dired-toggle-hidden-files ()
   "Toggle hidden files visibility."

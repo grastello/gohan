@@ -7,12 +7,16 @@
 (scroll-bar-mode -1)
 (fringe-mode '(10 . 10))
 
-;; modeline
+;; Modeline.
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1))
 
-;; dashboard
+;; Nerd icons.
+(use-package nerd-icons
+  :ensure t)
+
+;; Dashboard.
 (use-package dashboard
   :ensure t
   :config
@@ -73,7 +77,7 @@
   :config
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t)
-  
+
   :init
   (counsel-mode))
 
@@ -104,6 +108,6 @@
   :ensure t
   :config
   (setq  zoom-size  '(0.618 . 0.618))
-  
+
   :init
   (zoom-mode))
