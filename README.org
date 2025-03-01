@@ -1,0 +1,5 @@
+* Gohan
+Dotfiles managed with GNU =stow=.
+
+** Emacs
+In order to use this configuration load =my-init.el= from =init.el=.
