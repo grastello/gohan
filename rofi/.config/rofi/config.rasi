@@ -1,0 +1,5 @@
+@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+
+configuration {
+     font: "Fira Code 12";
+}
