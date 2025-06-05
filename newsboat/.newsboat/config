@@ -9,13 +9,15 @@ bind-key G end
 # Show new things first.
 feed-sort-order unreadarticlecount-asc
 
+# Browser and other operations.
+browser "firefox"
+macro y set browser "echo -n %u | xclip -selection clipboard"; open-in-browser; set browser "firefox"
+
 # Colors.
 color listnormal cyan default
 color listnormal_unread blue default bold
 color listfocus black yellow standout bold
 color listfocus_unread yellow default bold
-# color info red black bold
-# color article white default bold
 
 # Austere interface.
 show-keymap-hint no
