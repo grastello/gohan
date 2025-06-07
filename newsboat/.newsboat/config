@@ -12,6 +12,7 @@ feed-sort-order unreadarticlecount-asc
 # Browser and other operations.
 browser "firefox"
 macro y set browser "echo -n %u | xclip -selection clipboard"; open-in-browser; set browser "firefox"
+macro m set browser "setsid -f mpv --no-terminal %u > /dev/null 2>&1"; open-in-browser; set browser "firefox"
 
 # Colors.
 color listnormal cyan default
