@@ -48,7 +48,6 @@ alias egrep='egrep --color=auto'
 alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
-alias vi='nvim'
 alias nw='newsboat'
 
 # vi mode
