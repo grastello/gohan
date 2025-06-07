@@ -1,0 +1,2 @@
+# minute hour day-of-month month-of-year day-of-week command
+*/30 * * * * newsboat -x reload
