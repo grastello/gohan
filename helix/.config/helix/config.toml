@@ -1,5 +1,5 @@
 # Use the terminal's colors.
-theme = "base16_default"
+theme = "base16_transparent"
 
 [editor]
 line-number = "relative"
