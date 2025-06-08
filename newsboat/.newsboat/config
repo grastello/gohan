@@ -1,4 +1,4 @@
-# Useful bindings.
+# Useful movement bindings.
 bind-key j down
 bind-key k up
 bind-key l open
@@ -8,6 +8,9 @@ bind-key G end
 
 # Show new things first.
 feed-sort-order unreadarticlecount-asc
+
+# Toggle article (un)read status as in elfeed.
+bind-key a toggle-article-read
 
 # Browser and other operations.
 browser "firefox"
