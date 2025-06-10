@@ -1,9 +1,0 @@
-inherits = "base16_default"
-
-"ui.background" = {}
-"ui.help" = { fg = "white" }
-"ui.linenr" = { fg = "gray" }
-"ui.linenr.selected" = { fg = "white", modifiers = ["bold"] }
-"ui.gutter" = {}
-"ui.popup" = { fg = "white" }
-"ui.menu" = { fg = "white" }
