@@ -5,7 +5,9 @@ case $- in
 esac
 
 # Use liquidprompt!
+source $HOME/gohan/bash/unfold.theme
 source $HOME/gohan/bash/liquidprompt
+lp_theme unfold
 
 # Enable color support for some commands.
 alias ls='ls --color=auto'
