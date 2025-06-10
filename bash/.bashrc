@@ -5,9 +5,12 @@ case $- in
 esac
 
 # Use liquidprompt!
-source $HOME/gohan/bash/unfold.theme
-source $HOME/gohan/bash/liquidprompt
-lp_theme unfold
+PS1="\[\033[00;37m\]\$(exit=\$?; if [[ \$exit != 0 ]]; then echo \"\[\033[00;31m\]X \$exit \"; fi)\[\033[00;32m\]\u\[\033[00;36m\] \W \[\033[00;31m\]\$(parse_git_branch)\[\033[00;32m\]\$\[\033[00m\] "
+
+# get current git branch
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d;s/* /[/;s/$/] /'
+}
 
 # Enable color support for some commands.
 alias ls='ls --color=auto'
@@ -35,5 +38,3 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Load rust tools.
-. "$HOME/.cargo/env"
