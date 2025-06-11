@@ -7,6 +7,3 @@ There are a few (currently one) exceptions:
 
 ## Untracked files
 Put your bookmarks/snippets in `scripts/snippets.txt` and your newsboat feeds in `newsboat/.newsboat/urls`.
-
-## Not my work
-- [liquidprompt](https://github.com/liquidprompt/liquidprompt)
