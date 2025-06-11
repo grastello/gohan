@@ -1,0 +1,39 @@
+# My kakrc!
+
+# A nice colorscheme.
+colorscheme gruvbox-dark
+
+# Width of a tab and indent with 4 spaces.
+set-option global tabstop 4
+set-option global indentwidth 4
+
+# Always keep one line and three columns displayed around the cursor.
+set-option global scrolloff 1,3
+
+# Display the status bar on top.
+set-option -add global ui_options terminal_status_on_top=true
+
+# No more clippy.
+set-option -add global ui_options terminal_assistant=none
+
+# Display line numbers.
+add-highlighter global/ number-lines -hlcursor -relative
+
+# Highlight matching braces.
+add-highlighter global/ show-matching
+
+# User mode.
+map -docstring "yank selection to system clipboard" global user y "<a-|> xclip -selection clipboard<ret>"
+map -docstring "paste the system clipboard" global user p "<a-!> xclip -selection clipboard -o<ret>"
+map -docstring "close current buffer" global user b ": db<ret>"
+map -docstring "goto previous buffer" global user n ": bp<ret>"
+map -docstring "goto next buffer" global user m ": bn<ret>"
+
+# Softwrapping in markdown files and in markdown file only.
+hook global WinSetOption filetype=markdown %{
+  add-highlighter -override global/markdown-wrap wrap -word
+
+  hook -once -always window WinSetOption filetype=.* %{
+    remove-highlighter global/markdown-wrap
+  }
+}
