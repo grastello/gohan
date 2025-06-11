@@ -23,17 +23,18 @@ add-highlighter global/ number-lines -hlcursor -relative
 add-highlighter global/ show-matching
 
 # User mode.
-map -docstring "yank selection to system clipboard" global user y "<a-|> xclip -selection clipboard<ret>"
-map -docstring "paste the system clipboard" global user p "<a-!> xclip -selection clipboard -o<ret>"
 map -docstring "close current buffer" global user b ": db<ret>"
-map -docstring "goto previous buffer" global user n ": bp<ret>"
-map -docstring "goto next buffer" global user m ": bn<ret>"
+map -docstring "goto next buffer" global user n ": bn<ret>"
+map -docstring "make" global user m ":make<ret>"
 
-# Softwrapping in markdown files and in markdown file only.
-hook global WinSetOption filetype=markdown %{
-  add-highlighter -override global/markdown-wrap wrap -word
+map -docstring "yank selection to system clipboard" global user y %{
+    "<a-|> xclip -selection clipboard<ret>"
+}
 
-  hook -once -always window WinSetOption filetype=.* %{
-    remove-highlighter global/markdown-wrap
-  }
+map -docstring "paste the system clipboard" global user p %{
+	"<a-!> xclip -selection clipboard -o<ret>"
+}
+
+map -docstring "select lines longer than 80 characters" global user w %{
+    "<percent><a-s>$wc -L | xargs -I {} [ {} -gt 80 ]<ret>"
 }
