@@ -30,5 +30,9 @@ map -docstring "make" global user r ":make run<ret>"
 map -docstring "yank selection to system clipboard" global user y  "<a-|> xclip -selection clipboard<ret>"
 map -docstring "paste the system clipboard" global user p "<a-!> xclip -selection clipboard -o<ret>"
 
-# Maybe this one is worthty of being a command?
-map -docstring "select lines longer than 80 characters" global user w "<percent><a-s>$wc -L | xargs -I {} [ {} -gt 80 ]<ret>"
+# Select all lines that are over 80 characters so that we can manually or
+# automatically deal with them.
+define-command -hidden select-long-lines %{
+    execute-keys "<percent><a-s>$wc -L | xargs -I {} [ {} -gt 80 ]<ret>"
+}
+map -docstring "select long lines" global user w ":select-long-lines<ret>"
