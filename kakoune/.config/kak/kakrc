@@ -26,7 +26,7 @@ add-highlighter global/ show-matching
 map -docstring "close current buffer" global user b ": db<ret>"
 map -docstring "goto next buffer" global user n ": bn<ret>"
 map -docstring "make" global user m ":make<ret>"
-map -docstring "make" global user r ":make run<ret>"
+map -docstring "make run" global user r ":make run<ret>"
 map -docstring "yank selection to system clipboard" global user y  "<a-|> xclip -selection clipboard<ret>"
 map -docstring "paste the system clipboard" global user p "<a-!> xclip -selection clipboard -o<ret>"
 
