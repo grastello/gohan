@@ -23,7 +23,7 @@ add-highlighter global/ number-lines -hlcursor -relative
 add-highlighter global/ show-matching
 
 # User mode.
-map -docstring "close current buffer" global user b ": db<ret>"
+map -docstring "close current buffer" global user q ": db<ret>"
 map -docstring "goto next buffer" global user n ": bn<ret>"
 map -docstring "make" global user m ":make<ret>"
 map -docstring "make run" global user r ":make run<ret>"
