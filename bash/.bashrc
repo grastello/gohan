@@ -24,9 +24,6 @@ alias la='ls -A'
 alias l='ls -CF'
 alias nw='newsboat'
 
-# Vi mode.
-set -o vi
-
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
