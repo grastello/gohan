@@ -40,3 +40,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Rustup
+. "$HOME/.cargo/env"

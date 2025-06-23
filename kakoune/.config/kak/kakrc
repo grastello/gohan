@@ -1,4 +1,4 @@
-# cc kakrc!
+# kakrc!
 
 # A nice colorscheme.
 colorscheme gruvbox-dark
@@ -23,16 +23,33 @@ add-highlighter global/ number-lines -hlcursor -relative
 add-highlighter global/ show-matching
 
 # User mode.
-map -docstring "close current buffer" global user q ": db<ret>"
-map -docstring "goto next buffer" global user <space> ": bn<ret>"
+
+# Buffer navigation.
+map -docstring "close buffer" global user q ": db<ret>"
+map -docstring "next buffer" global user <space> ": bn<ret>"
+
+# Make bindings.
 map -docstring "make" global user m ":make<ret>"
 map -docstring "make run" global user r ":make run<ret>"
-map -docstring "yank selection to system clipboard" global user y  "<a-|> xclip -selection clipboard<ret>"
-map -docstring "paste the system clipboard" global user p "<a-!> xclip -selection clipboard -o<ret>"
 
-# Select all lines that are over 80 characters so that we can manually or
-# automatically deal with them.
-define-command -hidden select-long-lines %{
-    execute-keys "<percent><a-s>$wc -L | xargs -I {} [ {} -gt 80 ]<ret>"
+# System's clipboard bindings.
+map -docstring "yank to clipboard" global user y  "<a-|> xclip -selection clipboard<ret>"
+map -docstring "paste from clipboard" global user p "<a-!> xclip -selection clipboard -o<ret>"
+
+# Rust
+# We leverage the builtin make integration to interact with the rust toolchain
+# as well.
+hook -once global BufSetOption filetype=rust %{
+    set-option buffer makecmd 'cargo'
+    map -docstring 'cargo build' buffer user m ':make build<ret>'
+    map -docstring 'cargo run' buffer user r ':make run<ret>'
+    map -docstring 'cargo fmt' buffer user f ':nop %sh{cargo fmt}<ret>'
+
+	# Set the same options and commands for the *make* buffer for convenience.
+	hook -once global BufSetOption filetype=*make* %{
+        set-option buffer makecmd 'cargo'
+        map -docstring 'cargo build' buffer user m ':make build<ret>'
+        map -docstring 'cargo run' buffer user r ':make run<ret>'
+        map -docstring 'cargo fmt' buffer user f ':nop %sh{cargo fmt}<ret>'
+	}
 }
-map -docstring "select long lines" global user w ":select-long-lines<ret>"
