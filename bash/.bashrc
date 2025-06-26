@@ -29,6 +29,8 @@ alias nw='newsboat'
 
 alias teach='cd $HOME/documents/projects/teaching'
 
+alias nnn='nnn -A -d'
+
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
