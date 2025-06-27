@@ -42,5 +42,28 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# TODO.md management
+TODO_FILE="$HOME/TODO.md"
+
+todo_next() {
+    awk '
+        $0 == "## TODO" { do_print = 1 }
+        NF == 0 { do_print = 0 }
+        { if (do_print == 1) { print $0 } }
+    ' $TODO_FILE
+}
+
+todo_projects() {
+    awk '
+        $0 == "## Projects" { do_print = 1 }
+        NF == 0 { do_print = 0 }
+        { if (do_print == 1) { print $0 } }
+    ' $TODO_FILE
+}
+
+todo_edit() {
+    $EDITOR $TODO_FILE
+}
+
 # Rustup
 . "$HOME/.cargo/env"
