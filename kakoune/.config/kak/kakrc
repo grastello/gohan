@@ -22,8 +22,6 @@ add-highlighter global/ number-lines -hlcursor -relative
 # Highlight matching braces.
 add-highlighter global/ show-matching
 
-# User mode.
-
 # Buffer navigation.
 map -docstring "close buffer" global user q ": db<ret>"
 map -docstring "next buffer" global user <space> ": bn<ret>"
@@ -36,20 +34,20 @@ map -docstring "make run" global user r ":make run<ret>"
 map -docstring "yank to clipboard" global user y  "<a-|> xclip -selection clipboard<ret>"
 map -docstring "paste from clipboard" global user p "<a-!> xclip -selection clipboard -o<ret>"
 
-# Rust
-# We leverage the builtin make integration to interact with the rust toolchain
+# Golang
+# We leverage the builtin make integration to interact with the go toolchain
 # as well.
-hook -once global BufSetOption filetype=rust %{
-    set-option buffer makecmd 'cargo'
-    map -docstring 'cargo build' buffer user m ':make build<ret>'
-    map -docstring 'cargo run' buffer user r ':make run<ret>'
-    map -docstring 'cargo fmt' buffer user f ':nop %sh{cargo fmt}<ret>'
+hook -once global BufSetOption filetype=go %{
+    set-option buffer makecmd 'go'
+    map -docstring 'go build' buffer user m ':make build<ret>'
+    map -docstring 'go run' buffer user r ':make run .<ret>'
+    map -docstring 'go fmt' buffer user f ':nop %sh{go fmt}<ret>'
 
 	# Set the same options and commands for the *make* buffer for convenience.
 	hook -once global BufSetOption filetype=*make* %{
-        set-option buffer makecmd 'cargo'
-        map -docstring 'cargo build' buffer user m ':make build<ret>'
-        map -docstring 'cargo run' buffer user r ':make run<ret>'
-        map -docstring 'cargo fmt' buffer user f ':nop %sh{cargo fmt}<ret>'
+        set-option buffer makecmd 'go'
+        map -docstring 'go build' buffer user m ':make build<ret>'
+        map -docstring 'go run' buffer user r ':make run .<ret>'
+        map -docstring 'go fmt' buffer user f ':nop %sh{go fmt}<ret>'
 	}
 }
