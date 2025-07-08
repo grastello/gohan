@@ -34,10 +34,15 @@ map -docstring "make run" global user r ":make run<ret>"
 map -docstring "yank to clipboard" global user y  "<a-|> xclip -selection clipboard<ret>"
 map -docstring "paste from clipboard" global user p "<a-!> xclip -selection clipboard -o<ret>"
 
+# HTML
+hook global BufSetOption filetype=html %{
+    map -docstring "surround selection" buffer user s "i<lt><gt><esc>a<lt>/<gt><esc><a-;><S-h><a-S>i"
+}
+
 # Golang
 # We leverage the builtin make integration to interact with the go toolchain
 # as well.
-hook -once global BufSetOption filetype=go %{
+hook global BufSetOption filetype=go %{
     set-option buffer makecmd 'go'
     map -docstring 'go build' buffer user m ':make build<ret>'
     map -docstring 'go run' buffer user r ':make run .<ret>'
