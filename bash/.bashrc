@@ -4,7 +4,7 @@ case $- in
       *) return;;
 esac
 
-# Personal prompt.
+# Personal prompt
 PS1="\[\033[00;37m\]\$(exit=\$?; if [[ \$exit != 0 ]]; then echo \"\[\033[00;31m\]X \$exit \"; fi)\[\033[00;32m\]\u\[\033[00;36m\] \W \[\033[00;31m\]\$(parse_git_branch)\[\033[00;32m\]\$\[\033[00m\] "
 
 # get current git branch
@@ -13,7 +13,8 @@ parse_git_branch() {
 }
 
 # Default editor.
-EDITOR='kak'
+export EDITOR='kak'
+export GIT_EDITOR='kak'
 
 # Coreutils aliases.
 alias ls='ls --color=auto'
@@ -32,6 +33,9 @@ alias nnn='nnn -A -d'
 alias teach='cd $HOME/documents/projects/teaching'
 alias vid="nnn -A -d $HOME/videos"
 
+# GOLANG, manually installed.
+export PATH=$PATH:/usr/local/go/bin
+
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -42,29 +46,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# TODO.md management
-TODO_FILE="$HOME/TODO.md"
-
-todo_next() {
-    awk '
-        $0 == "## TODO" { do_print = 1 }
-        NF == 0 { do_print = 0 }
-        { if (do_print == 1) { print $0 } }
-    ' $TODO_FILE
-}
-
-todo_projects() {
-    awk '
-        $0 == "## Projects" { do_print = 1 }
-        NF == 0 { do_print = 0 }
-        { if (do_print == 1) { print $0 } }
-    ' $TODO_FILE
-}
-
-todo_edit() {
-    $EDITOR $TODO_FILE
-}
-
-# Rustup
-. "$HOME/.cargo/env"
