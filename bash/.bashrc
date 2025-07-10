@@ -33,9 +33,6 @@ alias nnn='nnn -A -d'
 alias teach='cd $HOME/documents/projects/teaching'
 alias vid="nnn -A -d $HOME/videos"
 
-# GOLANG, manually installed.
-export PATH=$PATH:/usr/local/go/bin
-
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

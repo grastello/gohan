@@ -38,21 +38,3 @@ map -docstring "paste from clipboard" global user p "<a-!> xclip -selection clip
 hook global BufSetOption filetype=html %{
     map -docstring "surround selection" buffer user s "i<lt><gt><esc>a<lt>/<gt><esc><a-;><S-h><a-S>i"
 }
-
-# Golang
-# We leverage the builtin make integration to interact with the go toolchain
-# as well.
-hook global BufSetOption filetype=go %{
-    set-option buffer makecmd 'go'
-    map -docstring 'go build' buffer user m ':make build<ret>'
-    map -docstring 'go run' buffer user r ':make run .<ret>'
-    map -docstring 'go fmt' buffer user f ':nop %sh{go fmt}<ret>'
-
-	# Set the same options and commands for the *make* buffer for convenience.
-	hook -once global BufSetOption filetype=*make* %{
-        set-option buffer makecmd 'go'
-        map -docstring 'go build' buffer user m ':make build<ret>'
-        map -docstring 'go run' buffer user r ':make run .<ret>'
-        map -docstring 'go fmt' buffer user f ':nop %sh{go fmt}<ret>'
-	}
-}
