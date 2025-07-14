@@ -32,6 +32,7 @@ alias nnn='nnn -A -d'
 # Navigation aliases.
 alias teach='cd $HOME/documents/projects/teaching'
 alias vid="nnn -A -d $HOME/videos"
+alias books="nnn -A -d $HOME/documents/resources/books"
 
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
