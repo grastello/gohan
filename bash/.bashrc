@@ -29,6 +29,10 @@ alias egrep='egrep --color=auto'
 alias nw='newsboat'
 alias nnn='nnn -A -d'
 
+timer() {
+    ${HOME}/gohan/scripts/timer.awk "${@}" "${HOME}/gohan/scripts/alarm.m4a"
+}
+
 # Navigation aliases.
 alias teach='cd $HOME/documents/projects/teaching'
 alias vid="nnn -A -d ${HOME}/videos"
