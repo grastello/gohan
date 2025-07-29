@@ -1,3 +1,4 @@
 # minute hour day-of-month month-of-year day-of-week command
 */30 *   * * * ~/gohan/cron/newsboat-fetch.sh >> ~/.cronlog
 05   */2 * * * ~/gohan/cron/backup.sh >> ~/.cronlog
+05   */3 * * * gawk -f ~/gohan/cron/cronlog_clean.awk ~/.cronlog
