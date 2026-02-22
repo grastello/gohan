@@ -17,11 +17,11 @@ browser "firefox"
 macro y set browser "echo -n %u | xclip -selection clipboard"; open-in-browser; set browser "firefox"
 macro m set browser "setsid -f mpv --no-terminal %u > /dev/null 2>&1"; open-in-browser; set browser "firefox"
 
-# Colors.
-color listnormal cyan default
-color listnormal_unread blue default bold
-color listfocus black yellow standout bold
-color listfocus_unread yellow default bold
+# Colors (not needed with black-and-white terminal colorscheme).
+# color listnormal cyan default
+# color listnormal_unread blue default bold
+# color listfocus black yellow standout bold
+# color listfocus_unread yellow default bold
 
 # Austere interface.
 show-keymap-hint no
