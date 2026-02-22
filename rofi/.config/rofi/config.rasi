@@ -1,5 +1,64 @@
-@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
-
 configuration {
-     font: "Fira Code 12";
+    modi: "drun,run";
+    show-icons: false;
+    font: "Fira Code 12";
+}
+
+* {
+    background: #000000;
+    background-alt: #000000;
+    foreground: #ffffff;
+    border-color: #ffffff;
+}
+
+/* Window */
+window {
+    width: 600px;
+    border: 2px;
+    border-color: #ffffff;
+    background-color: #000000;
+}
+
+/* Containers */
+mainbox,
+inputbar,
+listview {
+    background-color: #000000;
+}
+
+prompt,
+entry {
+    background-color: #000000;
+    text-color: #ffffff;
+}
+
+/* ---------- ROW STATES ---------- */
+
+/* Normal rows */
+element normal.normal,
+element alternate.normal {
+    background-color: #000000;
+    text-color: #ffffff;
+}
+
+/* Selected row = inverted */
+element selected.normal {
+    background-color: #ffffff;
+    text-color: #000000;
+}
+
+/* Force text + icon to follow selection */
+element-text selected {
+    background-color: #ffffff;
+    text-color: #000000;
+}
+
+element-icon selected {
+    background-color: #ffffff;
+    text-color: #000000;
+}
+
+/* Remove spacing artifacts */
+listview {
+    spacing: 0px;
 }
