@@ -5,7 +5,8 @@ case $- in
 esac
 
 # Personal prompt
-PS1='\[\e[0;33m\][\[\e[0;31m\]\u\[\e[0;33m\]@\[\e[0;32m\]\h \[\e[01;34m\]\W \[\e[00;36m\]\A\[\e[0;33m\]]$ \e[m'
+# PS1='\[\e[0;33m\][\[\e[0;31m\]\u\[\e[0;33m\]@\[\e[0;32m\]\h \[\e[01;34m\]\W \[\e[00;36m\]\A\[\e[0;33m\]]$ \e[m'
+PS1='\[\e[01;34m\]\W \[\e[00;36m\]$ \[\e[m\]'
 
 # get current git branch
 parse_git_branch() {
@@ -27,7 +28,8 @@ alias egrep='egrep --color=auto'
 
 # Non-coreutils software aliases.
 alias nw='newsboat'
-alias nnn='nnn -A -d'
+alias nnn='nnn -C -A -d'
+alias gitroot='cd $(git rev-parse --show-toplevel)'
 
 timer() {
     ${HOME}/gohan/scripts/timer.awk "${@}" "${HOME}/gohan/scripts/alarm.m4a"
@@ -35,8 +37,8 @@ timer() {
 
 # Navigation aliases.
 alias teach='cd $HOME/documents/projects/teaching'
-alias vid="nnn -A -d ${HOME}/videos"
-alias books="nnn -A -d ${HOME}/documents/resources/books"
+alias vid="nnn -C -A -d ${HOME}/videos"
+alias books="nnn -C -A -d ${HOME}/documents/resources/books"
 alias todo="${EDITOR} ${HOME}/TODO.md"
 
 # Enable programmable completion features (you don't need to enable
