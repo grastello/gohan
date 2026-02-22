@@ -1,9 +1,9 @@
 # kakrc!
 
 # A nice colorscheme.
-colorscheme gruvbox-dark
+colorscheme default
 
-# Width of a tab and indent with 4 spaces.
+# Width of a tab.
 set-option global tabstop 4
 set-option global indentwidth 4
 
@@ -34,7 +34,3 @@ map -docstring "make run" global user r ":make run<ret>"
 map -docstring "yank to clipboard" global user y  "<a-|> xclip -selection clipboard<ret>"
 map -docstring "paste from clipboard" global user p "<a-!> xclip -selection clipboard -o<ret>"
 
-# HTML
-hook global BufSetOption filetype=html %{
-    map -docstring "insert paragraph below" buffer user s "o<lt>p<gt><ret><lt>/p<gt><a-;>O<backspace><backspace><backspace><backspace>"
-}
