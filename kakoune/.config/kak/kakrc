@@ -2,6 +2,7 @@
 
 map global normal <c-[> <esc>
 map global insert <c-[> <esc>
+map global prompt <c-[> <esc>
 
 # A nice colorscheme.
 colorscheme default
