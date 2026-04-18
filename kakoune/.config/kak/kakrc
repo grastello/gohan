@@ -1,5 +1,8 @@
 # kakrc!
 
+map global normal <c-[> <esc>
+map global insert <c-[> <esc>
+
 # A nice colorscheme.
 colorscheme default
 
