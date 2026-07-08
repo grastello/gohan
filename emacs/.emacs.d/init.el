@@ -41,12 +41,12 @@
 ;; If we have Fira code installed, set it up as well as ligatures.
 (when (find-font (font-spec :family "Fira Code"))
   (set-face-attribute 'default nil
-                      :family "Fira Code"
-                      :height 120)
+		      :family "Fira Code"
+		      :height 120)
 
   (use-package ligature
     :ensure t
-    
+
 
     :config
     (ligature-set-ligatures 't '("www")) ; Enable www ligature for all modes.
@@ -154,6 +154,8 @@
 ;; Dired and file management
 ;; =========================
 
+(require 'dired)
+
 ;; Some aesthetic refinements.
 (setq dired-listing-switches "-lh")
 (add-hook 'dired-mode-hook (lambda ()
@@ -212,6 +214,51 @@
 
 (define-key dired-mode-map (kbd "C-x p") #'dired-open)
 
+;; ===========
+;; Completion.
+;; ===========
+
+;; Vertico for the minibuffer.
+(use-package vertico
+  :ensure t
+  :init
+  (vertico-mode))
+
+;; Marginalia adds some details.
+(use-package marginalia
+  :ensure t
+  :init
+  (marginalia-mode))
+
+;; Orderless gives us better completion.
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles partial-completion))))
+  (completion-category-defaults nil)   ; Disable defaults, use our settings
+  (completion-pcm-leading-wildcard t)) ; Emacs 31: partial-completion behaves like substring
+
+;; Corfu for in-buffer completion.
+(use-package corfu
+  :ensure t
+  :init
+  (global-corfu-mode))
+
+;; Allow TAB to get into corfu.
+(use-package emacs
+  :custom
+  (tab-always-indent 'complete))
+
+;; Cape makes corfu behave as we would expect it to.
+(use-package cape
+  :ensure t
+  :bind
+  ("C-c p" . cape-prefix-map)
+  :init
+  (add-hook 'completion-at-point-functions #'cape-dabbrev)
+  (add-hook 'completion-at-point-functions #'cape-file))
+
 ;; ==========================
 ;; Misc and helpful packages.
 ;; ==========================
@@ -230,8 +277,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(modus-operandi-deuteranopia))
  '(package-selected-packages
-   '(dashboard doom-modeline ligature nerd-icons-dired spacious-padding
-	       zoom)))
+   '(cape corfu dashboard doom-modeline ligature marginalia
+	  nerd-icons-dired orderless spacious-padding vertico zoom)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
