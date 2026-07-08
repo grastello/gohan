@@ -1,5 +1,5 @@
 # Gohan - It's just dotfiles.
-- Icon theme: [Papirus Dark](https://www.gnome-look.org/p/1166289)
+- Icon theme: [Papirus](https://www.gnome-look.org/p/1166289)
 - Font: Fira Code
 
 ## Setup
