@@ -4,6 +4,7 @@
 
 ## Setup
 Configurations files can be symlinked in place by using GNU `stow`.
+Personal emacs features should live under the `.emacs.d/elisp` directory.
 
 ## Untracked files
 
