@@ -269,6 +269,10 @@
 ;; Hints!
 (which-key-mode)
 
+;; Store backups somewhere else.
+(setq backup-directory-alist
+      '("." . "~/.emacs.d/backups"))
+
 ;; RSS feeds.
 (require 'my-feeds) ; Load my super secret feeds.
 
