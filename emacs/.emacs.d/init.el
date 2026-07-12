@@ -150,9 +150,9 @@
 ;; Only ask y/n questions.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; =========================
-;; Dired and file management
-;; =========================
+;; ==========================
+;; Dired and file management.
+;; ==========================
 
 (require 'dired)
 
@@ -162,12 +162,16 @@
 			       (hl-line-mode 1)
 			       (toggle-truncate-lines)))
 
-;; We can use icond in dired as well.
+;; We can use icons in dired as well.
 (use-package nerd-icons-dired
   :ensure t
 
   :hook
   (dired-mode . nerd-icons-dired-mode))
+
+;; No parethesis highlighting in dired.
+(add-hook 'dired-mode-hook
+	  (lambda () (show-paren-mode -1)))
 
 ;; Toggle hidden files.
 (defun dired-toggle-hidden-files ()
