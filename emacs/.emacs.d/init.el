@@ -266,6 +266,13 @@
   (add-hook 'completion-at-point-functions #'cape-dabbrev)
   (add-hook 'completion-at-point-functions #'cape-file))
 
+;; ============
+;; Programming.
+;; ============
+
+;; Spell-chekcing is useful when we write HTML.
+(add-hook 'html-mode-hook #'flyspell-mode)
+
 ;; ==========================
 ;; Misc and helpful packages.
 ;; ==========================
