@@ -171,7 +171,7 @@
 
 ;; No parethesis highlighting in dired.
 (add-hook 'dired-mode-hook
-	  (lambda () (show-paren-mode -1)))
+	  (lambda () (show-paren-local-mode -1)))
 
 ;; Toggle hidden files.
 (defun dired-toggle-hidden-files ()
