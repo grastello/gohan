@@ -273,6 +273,13 @@
 ;; Spell-chekcing is useful when we write HTML.
 (add-hook 'html-mode-hook #'flyspell-mode)
 
+;; Magit for git magic.
+(use-package magit
+  :ensure t
+
+  :config
+  (setopt magit-format-file-function #'magit-format-file-nerd-icons))
+
 ;; ==========================
 ;; Misc and helpful packages.
 ;; ==========================
@@ -315,7 +322,7 @@
  '(custom-enabled-themes '(modus-operandi-deuteranopia))
  '(package-selected-packages
    '(auto-package-update cape corfu dashboard doom-modeline elfeed
-			 ligature marginalia nerd-icons-dired
+			 ligature magit marginalia nerd-icons-dired
 			 orderless spacious-padding vertico zoom)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
