@@ -299,6 +299,7 @@
   :bind
   ("C-x w" . elfeed)
   :config
+  (setq elfeed-search-sort-function '(elfeed-search-group-by-feed nil))
   (setq elfeed-feeds my-feeds))
 
 ;; Automatically keep our packages updated.
