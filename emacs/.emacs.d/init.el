@@ -280,6 +280,22 @@
   :config
   (setopt magit-format-file-function #'magit-format-file-nerd-icons))
 
+;; Common lisp
+(use-package sly
+  :ensure t
+
+  :config
+  (setq inferior-lisp-program "/usr/bin/sbcl"))
+
+;; Electric pair parentheses. We keep it on globally because it tuyrns out to be quite useful.
+(setq electric-pair-pairs '(
+			    (?\{ . ?\})
+			    (?\( . ?\))
+			    (?\[ . ?\])
+			    (?\" . ?\")
+			    ))
+(electric-pair-mode t)
+
 ;; ==========================
 ;; Misc and helpful packages.
 ;; ==========================
@@ -324,7 +340,7 @@
  '(package-selected-packages
    '(auto-package-update cape corfu dashboard doom-modeline elfeed
 			 ligature magit marginalia nerd-icons-dired
-			 orderless spacious-padding vertico zoom)))
+			 orderless sly spacious-padding vertico zoom)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
